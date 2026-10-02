@@ -27,8 +27,9 @@ only for checking local, uncommitted changes; omit it after committing.
 - Check that `hello-world-crate` is available on crates.io. Names are shared by
   all users. If needed, change `package.name` in `Cargo.toml` and update the Rust
   import in this readme and the examples in `src/lib.rs` (hyphens become underscores)
-- Review the MIT license and package contents before uploading. Add a real
-  `repository` URL to `Cargo.toml` if you host the source; no source host is required
+- Review the MIT license and package contents before uploading. `Cargo.toml`
+  points to the planned GitHub repository; create it before publishing, or update
+  `repository` if you choose a different owner or name
 - Sign in at https://crates.io/ with GitHub and verify your email at
   https://crates.io/settings/profile
 - Create a short-lived token at https://crates.io/settings/tokens with only the
@@ -41,6 +42,16 @@ git add .gitignore Cargo.toml src/lib.rs README.md LICENSE
 git commit -m "Prepare initial crate release"
 cargo publish --dry-run
 ```
+
+To create a public GitHub repository from this folder and push the committed source:
+
+```fish
+gh repo create hello-world-crate --public --source=. --remote=origin --push
+```
+
+This creates the repository under your authenticated GitHub account. Use
+`--private` instead if the source repository should be private; the code uploaded
+to crates.io will still be public. GitHub hosting is not required by crates.io.
 
 Only after reviewing the archive and deciding to publish publicly:
 
