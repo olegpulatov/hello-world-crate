@@ -1,0 +1,9 @@
+[package]
+name = "hello-world-crate"
+version = "0.1.0"
+edition = "2024"
+description = "A minimal greeting library for learning how to publish a Rust crate."
+license = "MIT"
+readme = "README.md"
+keywords = ["hello", "learning"]
+include = ["src/**", "Cargo.toml", "README.md", "LICENSE"]
